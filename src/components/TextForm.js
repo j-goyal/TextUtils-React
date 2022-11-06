@@ -56,6 +56,12 @@ export default function TextForm(props) {
             setText("");
         }
     }
+    
+    const handleNumExSpClick = () => {
+        if (validation("Number Extracted")) {
+            setText(text.match(/\d+/g).join(' '));
+        }
+    }
 
     const [text, setText] = useState('')
 
@@ -70,8 +76,9 @@ export default function TextForm(props) {
                 <button type="button" className="btn btn-secondary mx-1 my-1" onClick={handleLwClick}>LowerCase</button>
                 <button type="button" className="btn btn-secondary mx-1 my-1" onClick={handleCopyClick}>Copy Text</button>
                 <button type="button" className="btn btn-secondary mx-1 my-1" onClick={handleSpClick}>Remove all Spaces</button>
-                <button type="button" className="btn btn-secondary mx-1 my-1" onClick={handleClearClick}>Clear Text</button>
+                <button type="button" className="btn btn-secondary mx-1 my-1" onClick={handleNumExSpClick}>Extract Numbers</button>
                 <button type="button" className="btn btn-secondary mx-1 my-1" onClick={handleExSpClick}>Remove Extra Spaces</button>
+                <button type="button" className="btn btn-secondary mx-1 my-1" onClick={handleClearClick}>Clear Text</button>
                 <div className="my-3">
                     <hr></hr>
                     <h5>Your text Summary</h5>

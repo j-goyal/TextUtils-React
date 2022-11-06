@@ -27,7 +27,7 @@ function App() {
 
     setTimeout(() => {
       setAlert(null);
-    }, 1500);
+    }, 1800);
   }
 
   const toggleMode = () => {
@@ -67,7 +67,7 @@ function App() {
   return (
     <>
       {/* <Router> */}
-        <Navbar title="TextUtils" aboutText="About" mode={mode} toggleMode={toggleMode} toggleBlueMode={toggleBlueMode} />
+        <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} toggleBlueMode={toggleBlueMode} />
         <Alert alert={alert} />
         <TextForm heading="Enter text to analyze" mode={mode} alertShow={showAlert} />
         {/* <Routes> */}
