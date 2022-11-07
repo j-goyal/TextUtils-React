@@ -19,6 +19,12 @@ function App() {
   const [mode, setMode] = useState("light")  // whether dark mode is enabled or not
   const [alert, setAlert] = useState(null)
 
+
+  // by default check Light Mode Radio button
+  window.onload = function () {
+    document.getElementById("lightMode").checked = true;
+  };
+
   const showAlert = (message, type) => {
     setAlert({
       msg: message,
@@ -30,52 +36,50 @@ function App() {
     }, 1800);
   }
 
-  const toggleMode = () => {
-    if (mode === 'light') {
-      document.getElementById("blueModeDiv").style.visibility = 'hidden';
-      setMode("dark");
-      document.body.style.backgroundColor = '#18402d';
-      document.body.style.color = 'white';
-      showAlert("Green Mode enabled", "success");
-    }
-    else {
-      document.getElementById("blueModeDiv").style.visibility = 'visible';
-      setMode("light");
-      document.body.style.backgroundColor = 'white';
-      document.body.style.color = 'black';
-      showAlert("Light Mode enabled", "success");
-    }
+  const toggleGreenMode = () => {
+    document.getElementById("greenMode").checked = true;
+    document.getElementById("lightMode").checked = false;
+    document.getElementById("blueMode").checked = false;
+    setMode("dark");
+    document.body.style.backgroundColor = '#18402d';
+    document.body.style.color = 'white';
+    showAlert("Green Mode enabled", "success");
+
   }
 
   const toggleBlueMode = () => {
-    if (mode === 'light') {
-      document.getElementById("darkModeDiv").style.visibility = 'hidden';
-      setMode("dark");
-      document.body.style.backgroundColor = '#032352';
-      document.body.style.color = 'white';
-      showAlert("Blue Mode enabled", "success");
-    }
-    else {
-      document.getElementById("darkModeDiv").style.visibility = 'visible';
-      setMode("light");
-      document.body.style.backgroundColor = 'white';
-      document.body.style.color = 'black';
-      showAlert("Light Mode enabled", "success");
-    }
+    document.getElementById("blueMode").checked = true;
+    document.getElementById("lightMode").checked = false;
+    document.getElementById("greenMode").checked = false;
+    setMode("dark");
+    document.body.style.backgroundColor = '#032352';
+    document.body.style.color = 'white';
+    showAlert("Blue Mode enabled", "success");
+  }
+
+  const toggleLightMode = () => {
+    document.getElementById("lightMode").checked = true;
+    document.getElementById("blueMode").checked = false;
+    document.getElementById("greenMode").checked = false;
+    setMode("light");
+    document.body.style.backgroundColor = 'white';
+    document.body.style.color = 'black';
+    showAlert("Light Mode enabled", "success");
+
   }
 
   return (
     <>
       {/* <Router> */}
-        <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} toggleBlueMode={toggleBlueMode} />
-        <Alert alert={alert} />
-        <TextForm heading="Enter text to analyze" mode={mode} alertShow={showAlert} />
-        {/* <Routes> */}
-          {/* <Route path="/about" element={<About alertShow={showAlert} />}>
+      <Navbar title="TextUtils" mode={mode} toggleGreenMode={toggleGreenMode} toggleBlueMode={toggleBlueMode} toggleLightMode={toggleLightMode} />
+      <Alert alert={alert} />
+      <TextForm heading="Enter text to analyze" mode={mode} alertShow={showAlert} />
+      {/* <Routes> */}
+      {/* <Route path="/about" element={<About alertShow={showAlert} />}>
           </Route>
           <Route path="/" element={<TextForm heading="Enter text to analyze" mode={mode} alertShow={showAlert} />}>
           </Route> */}
-        {/* </Routes> */}
+      {/* </Routes> */}
       {/* </Router> */}
     </>
   )

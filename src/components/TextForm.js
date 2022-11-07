@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 
 export default function TextForm(props) {
-
+ 
     const handleChange = (event) => {
         setText(event.target.value)
     }
@@ -82,8 +82,8 @@ export default function TextForm(props) {
                 <div className="my-3">
                     <hr></hr>
                     <h5>Your text Summary</h5>
-                    <p><b>{text.split(/\s+/).filter((element) => {return element.length !== 0}).length}</b> <i>words</i>, <b>{text.length}</b> <i>chars</i></p>
-                    <p><b>{text.replaceAll('\n', '').replaceAll(' ', '').length / (125 * 5)}</b> <i>minutes</i>, <b>{text.replaceAll('\n', '').replaceAll(' ', '').length * 60 / (150 * 5)}</b> <i>seconds</i> to Read</p>
+                    <p><b>{text.split(/\s+/).filter((element) => {return element.length !== 0}).length}</b> <i>words</i>, <b>{text.length}</b> <i>chars</i>, <b>{text.match(/[a,e,i,o,u]/g) === null ? 0 :text.match(/[a,e,i,o,u]/g).length }</b> <i>vowels</i></p>
+                    <p><b>{text.replaceAll('\n', '').replaceAll(' ', '').length / (125 * 5)}</b> <i>minutes</i>, <b>{text.replaceAll('\n', '').replaceAll(' ', '').length * 60 / (150 * 5)}</b> <i>seconds</i> to read</p>
                     <hr></hr>
                     <h5>Preview</h5>
                     <p style={{ textAlign: 'justify' }}>{text === '' ? <i>Nothing to preview</i> : text}</p>

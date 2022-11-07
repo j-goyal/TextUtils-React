@@ -21,13 +21,17 @@ export default function Navbar(props) {
                         </li> */}
 
                     </ul>
-                    <div className={`me-3 form-check form-switch text-${props.mode === 'dark' ? 'light' : 'dark'}`} id="darkModeDiv" >
-                        <input className="form-check-input" aria-checked="false" onChange={props.toggleMode} type="checkbox" role="switch" id="darkMode" />
-                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Green Mode</label>
+                    <div className={`me-3 custom-control custom-switch text-${props.mode === 'dark' ? 'light' : 'dark'}`} id="greenModeDiv" >
+                        <input className="custom-control-input me-1" aria-checked="false" onChange={props.toggleGreenMode} type="radio" id="greenMode" />
+                        <label className="custom-control-label" htmlFor="flexSwitchCheckDefault">Green Mode</label>
                     </div>
-                    <div className={`form-check form-switch text-${props.mode === 'dark' ? 'light' : 'dark'}`} id="blueModeDiv">
-                        <input className="form-check-input" aria-checked="false" onChange={props.toggleBlueMode} type="checkbox" role="switch" id="blueMode" />
-                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Blue Mode</label>
+                    <div className={`me-3 custom-control custom-switch text-${props.mode === 'dark' ? 'light' : 'dark'}`} id="blueModeDiv">
+                        <input className="custom-control-input me-1" aria-checked="false" onChange={props.toggleBlueMode} type="radio" id="blueMode" />
+                        <label className="custom-control-label" htmlFor="flexSwitchCheckDefault">Blue Mode</label>
+                    </div>
+                    <div className={`custom-control custom-switch text-${props.mode === 'dark' ? 'light' : 'dark'}`} id="lightModeDiv">
+                        <input className="custom-control-input me-1" aria-checked="false" onChange={props.toggleLightMode} type="radio" id="lightMode" />
+                        <label className="custom-control-label" htmlFor="flexSwitchCheckDefault">Light Mode</label>
                     </div>
                 </div>
             </div>
