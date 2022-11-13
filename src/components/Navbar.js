@@ -25,6 +25,10 @@ export default function Navbar(props) {
                         <input className="custom-control-input me-1" aria-checked="false" onChange={props.toggleGreenMode} type="radio" id="greenMode" />
                         <label className="custom-control-label" htmlFor="flexSwitchCheckDefault">Green Mode</label>
                     </div>
+                    <div className={`me-3 custom-control custom-switch text-${props.mode === 'dark' ? 'light' : 'dark'}`} id="redModeDiv" >
+                        <input className="custom-control-input me-1" aria-checked="false" onChange={props.toggleRedMode} type="radio" id="redMode" />
+                        <label className="custom-control-label" htmlFor="flexSwitchCheckDefault">Red Mode</label>
+                    </div>
                     <div className={`me-3 custom-control custom-switch text-${props.mode === 'dark' ? 'light' : 'dark'}`} id="blueModeDiv">
                         <input className="custom-control-input me-1" aria-checked="false" onChange={props.toggleBlueMode} type="radio" id="blueMode" />
                         <label className="custom-control-label" htmlFor="flexSwitchCheckDefault">Blue Mode</label>

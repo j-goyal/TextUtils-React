@@ -40,10 +40,22 @@ function App() {
     document.getElementById("greenMode").checked = true;
     document.getElementById("lightMode").checked = false;
     document.getElementById("blueMode").checked = false;
+    document.getElementById("redMode").checked = false;
     setMode("dark");
     document.body.style.backgroundColor = '#18402d';
     document.body.style.color = 'white';
-    showAlert("Green Mode enabled", "success");
+    //showAlert("Green Mode enabled", "success");
+
+  }
+  const toggleRedMode = () => {
+    document.getElementById("greenMode").checked = false;
+    document.getElementById("lightMode").checked = false;
+    document.getElementById("blueMode").checked = false;
+    document.getElementById("redMode").checked = true;
+    setMode("dark");
+    document.body.style.backgroundColor = '#761010';
+    document.body.style.color = 'white';
+    //showAlert("Red Mode enabled", "success");
 
   }
 
@@ -51,27 +63,29 @@ function App() {
     document.getElementById("blueMode").checked = true;
     document.getElementById("lightMode").checked = false;
     document.getElementById("greenMode").checked = false;
+    document.getElementById("redMode").checked = false;
     setMode("dark");
     document.body.style.backgroundColor = '#032352';
     document.body.style.color = 'white';
-    showAlert("Blue Mode enabled", "success");
+    //showAlert("Blue Mode enabled", "success");
   }
 
   const toggleLightMode = () => {
     document.getElementById("lightMode").checked = true;
     document.getElementById("blueMode").checked = false;
     document.getElementById("greenMode").checked = false;
+    document.getElementById("redMode").checked = false;
     setMode("light");
     document.body.style.backgroundColor = 'white';
     document.body.style.color = 'black';
-    showAlert("Light Mode enabled", "success");
+    //showAlert("Light Mode enabled", "success");
 
   }
 
   return (
     <>
       {/* <Router> */}
-      <Navbar title="TextUtils" mode={mode} toggleGreenMode={toggleGreenMode} toggleBlueMode={toggleBlueMode} toggleLightMode={toggleLightMode} />
+      <Navbar title="TextUtils" mode={mode} toggleGreenMode={toggleGreenMode} toggleRedMode={toggleRedMode} toggleBlueMode={toggleBlueMode} toggleLightMode={toggleLightMode} />
       <Alert alert={alert} />
       <TextForm heading="Enter text to analyze" mode={mode} alertShow={showAlert} />
       {/* <Routes> */}
